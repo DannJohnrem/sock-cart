@@ -1,6 +1,6 @@
 # Socks Cart
 
-Socks Cart is a simple e-commerce application built with the fundamentals of Vue.js (via CDN). The project demonstrates a product page for socks, with features including a login component, color variant selection, an "Add to Cart" functionality, and a review submission form. The application emphasizes Vue.js basics and serves as a starting point for learning and building more complex applications.
+Socks Cart is a simple e-commerce product page built with the fundamentals of Vue.js (via CDN). The project demonstrates a product page for socks, with features including a color variant selection, an "Add to Cart" functionality, and a review submission form. The application emphasizes Vue.js basics and serves as a starting point for learning and building more complex applications.
 
 ## Features
 
