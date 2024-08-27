@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vue Mastery</title>
+        <!-- Import Styles -->
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <!-- Import Vue.js -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <header class="nav-bar">
+                <!-- navigation link goes here -->
+            </header>
+
+            <main class="product-display">
+                <section class="product-container">
+                    <figure class="product-image">
+                        <!-- image goes here -->
+                    </figure>
+
+                    <article class="product-info">
+                        <h1>{{ product }}</h1>
+                    </article>
+                </section>
+            </main>
+        </div>
+
+        <!-- Import App -->
+        <script src="./main.js"></script>
+
+        <!-- Mount App -->
+        <script>
+            const mountApp = app.mount('#app');
+        </script>
+    </body>
+</html>
