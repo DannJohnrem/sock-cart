@@ -1,14 +1,14 @@
 const app = Vue.createApp({
     data() {
         return {
+            brand: 'Nikey',
             product: 'Socks',
-            image: './assets/images/socks_green.jpg',
-            inventory: 11,
-            onSale: false,
+            selectedVariant: 0,
+            onSale: true,
             details: ['50% cotton', '30% wool', '20% polyester'],
             variants: [
-                { id: 716, color: 'green', image: './assets/images/socks_green.jpg' },
-                { id: 717, color: 'blue' , image: './assets/images/socks_blue.jpg' }
+                { id: 716, color: 'green', image: './assets/images/socks_green.jpg', quantity: 11 },
+                { id: 717, color: 'blue' , image: './assets/images/socks_blue.jpg', quantity: 0 }
             ],
             sizes: ['S', 'M', 'L', 'XL'],
             cart: 0,
@@ -23,8 +23,28 @@ const app = Vue.createApp({
                 this.cart -= 1
             }
         },
-        updateImage(variantImage) {
-            this.image = variantImage
+        updateVariant(index) {
+            this.selectedVariant = index
+            // console.log(index);
         }
+    },
+    computed: {
+        title() {
+            return this.brand + ' ' + this.product + this.onSale
+        },
+        image() {
+            return this.variants[this.selectedVariant].image
+        },
+        inStock() {
+            return this.variants[this.selectedVariant].quantity
+        },
+        sale() {
+            if (this.onSale) {
+                return this.brand + ' ' + this.product + ' is on sale.'
+            }
+
+            return ''
+        }
+
     }
 })
