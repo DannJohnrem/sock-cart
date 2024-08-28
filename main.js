@@ -30,7 +30,7 @@ const app = Vue.createApp({
     },
     computed: {
         title() {
-            return this.brand + ' ' + this.product + this.onSale
+            return this.brand + ' ' + this.product
         },
         image() {
             return this.variants[this.selectedVariant].image
