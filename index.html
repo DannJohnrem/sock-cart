@@ -10,29 +10,40 @@
     </head>
     <body>
         <div id="app">
-            <header class="nav-bar">
-                <!-- navigation link goes here -->
-            </header>
+            <header class="nav-bar"></header>
+
+            <section class="cart">Cart({{ cart }})</section>
 
             <main class="product-display">
                 <section class="product-container">
                     <figure class="product-image">
-                        <img :src="image" alt="sock image">
+                        <img :src="image" alt="sock image" :class="{'out-of-stock-img': inventory == 0}">
                     </figure>
 
                     <article class="product-details">
                         <h1>{{ product }}</h1>
                         <p v-if="inventory > 10">In Stock</p>
-                        <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold out</p>
+                        <p v-else-if="inventory <= 10 && inventory > 0">Almost
+                            Sold out</p>
                         <p v-else>Out of stock</p>
                         <p v-show="onSale">On Sale</p>
                         <ul>
                             <li v-for="detail in details">{{ detail }}</li>
                         </ul>
-                        <div v-for="variant in variants" v-bind:key="variant.id">{{ variant.color }}</div>
-                        <ul>
+                        <div v-for="variant in variants" v-bind:key="variant.id"
+                            @mouseover="updateImage(variant.image)" class="color-circle"
+                            :style="{backgroundColor: variant.color}"></div>
+
+                        <div class="btn-container">
+                            <button class="button" v-on:click="addToCart" :class="{disabledButton: inventory == 0}" :disabled="inventory == 0">Add to
+                                cart</button>
+                            <button class="button"
+                                @click="removeFromCart">Remove to cart</button>
+                        </div>
+
+                        <!-- <ul>
                             <li v-for="(size, index) in sizes" :key="index"> {{ size }}</li>
-                        </ul>
+                        </ul> -->
                     </article>
                 </section>
             </main>
